@@ -6,7 +6,7 @@ export interface IUser {
 }
 
 export type userState = {
-    users: IUser[],
+    user: IUser,
     isLoading: boolean,
 }
 
