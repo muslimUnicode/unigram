@@ -3,12 +3,16 @@ export interface IPost {
     description: string,
     comments: [],
     image: string,
-    user: string,
+    user: {
+        _id: string,
+        username: string,
+        avatar: string,
+    },
     created_at: string,
     likes: number,
 }
 
-export type postState = {
-    post: IPost[];
+export type postsState = {
+    posts: IPost[];
     isLoading: boolean;
 }

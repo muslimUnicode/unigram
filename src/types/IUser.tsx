@@ -8,6 +8,7 @@ export interface IUser {
 export type userState = {
     user: IUser,
     isLoading: boolean,
+    isAuth: boolean,
 }
 
 export type userData = {

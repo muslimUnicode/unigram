@@ -1,23 +1,23 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { IPost, postState } from "../../../types/IPost"
-import { post } from "./postsAction"
+import { IPost, postsState } from "../../../types/IPost"
+import { getPosts } from "./postsAction"
 
-const initialState: postState = {
-    post: [],
+const initialState: postsState = {
+    posts: [],
     isLoading: false,
 }
 
 export const postSlice = createSlice({
-    name: "post",
+    name: "posts",
     initialState,
     reducers: {},
     extraReducers(builder) {
-        builder.addCase(post.pending, (state) => {
+        builder.addCase(getPosts.pending, (state) => {
             state.isLoading = true
         })
-        builder.addCase(post.fulfilled, (state, action: PayloadAction<IPost[]>) => {
+        builder.addCase(getPosts.fulfilled, (state, action: PayloadAction<IPost[]>) => {
+            state.posts = action.payload
             state.isLoading = false
-            state.post = action.payload
         })
     }
 })

@@ -1,13 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import baseService from "../../../api/Api";
+import { IPost } from "../../../types/IPost";
 
-export const post = createAsyncThunk(
-    "user/post",
+export const getPosts = createAsyncThunk(
+    "posts/get",
     async function () {
-        const res = await baseService.post("/posts", {
-            description: "Добро пожаловать",
-            image: File,
-        })
+        const res = await baseService.get<IPost[]>("/posts")
         return res.data
     }
 )

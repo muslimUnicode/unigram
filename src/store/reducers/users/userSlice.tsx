@@ -1,18 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import Cookies from "universal-cookie/cjs/Cookies";
 import { IUser, userState } from "../../../types/IUser";
-import { authorization } from "./usersAction";
+import { authorization, getUser } from "./userAction";
+import { cookies } from "../../../api/Api";
 
-const cookies = new Cookies()
 
 const initialState: userState = {
     user: {
-        _id: cookies.get("_id") || "",
-        avatar: cookies.get("avatar") || "",
         token: cookies.get("token") || "",
-        username: cookies.get("username") || "",
+        _id: "",
+        avatar: "",
+        username:  "",
     },
     isLoading: false,
+    isAuth: false,
 }
 
 export const userSlice = createSlice({
@@ -26,7 +26,18 @@ export const userSlice = createSlice({
         builder.addCase(authorization.fulfilled, (state, action: PayloadAction<IUser>) => {
             state.user = action.payload
             state.isLoading = false
+            state.isAuth = true
         });
+        builder.addCase(getUser.pending, (state) => {
+            state.isLoading = true
+        })
+        builder.addCase(getUser.fulfilled, (state, action: PayloadAction<IUser>) => {
+            state.user.username = action.payload.username
+            state.user._id = action.payload._id
+            state.user.avatar = action.payload.avatar
+            state.isAuth = true
+            state.isLoading = false
+        })
     }
 });
 
