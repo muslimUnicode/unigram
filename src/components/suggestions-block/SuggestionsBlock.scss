@@ -1,0 +1,122 @@
+.suggestions-block {
+    margin-left: 35px;
+    width: 300px;
+
+    .current-user {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        img {
+            width: 56px;
+            height: 56px;
+            border-radius: 56px;
+            margin-right: 13px;
+        }
+
+        .name {
+            .user-nickname {
+                font-family: "Roboto";
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 18px;
+            }
+            .user-name {
+                font-family: 'Roboto';
+                font-size: 14px;
+                line-height: 18px;
+                color: #8e8e8e;
+            }
+        }
+
+        span {
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 18px;
+            color: #0095F6;
+            position: absolute;
+            right: 0;
+        }
+    }
+
+    .suggestions {
+        .see-all-block {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+
+            .suggestions-for-you {
+                font-family: 'Roboto';
+                font-size: 14px;
+                line-height: 18px;
+                color: #8E8E8E;
+            }
+
+            .see-all {
+                font-family: 'Roboto';
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 18px;
+                color: #262626;
+            }
+        }
+
+        .users-suggestions {
+            .user {
+                display: flex;
+                align-items: center;
+                position: relative;
+                margin-top: 12px;
+
+                img {
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 32px;
+                    margin-right: 12px;
+                }
+
+                .user-info {
+                    .user-name {
+                        font-family: 'Roboto';
+                        font-weight: 500;
+                        font-size: 14px;
+                        line-height: 18px;
+                    }
+
+                    .suggestion-for-you {
+                        font-family: 'Roboto';
+                        font-size: 12px;
+                        line-height: 18px;
+                        color: #8E8E8E;
+                    }
+                }
+
+                .follow {
+                    font-family: 'Roboto';
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 18px;
+                    color: #0095F6;
+                    position: absolute;
+                    right: 0;
+                }
+            }
+        }
+    }
+    
+    .other-links {
+        font-family: 'Roboto';
+        font-size: 12px;
+        line-height: 18px;
+        color: #8E8E8E;
+        margin: 32px 0 18px;
+    }
+
+    .credits {
+        font-family: 'Roboto';
+        font-size: 12px;
+        line-height: 18px;
+        color: #8E8E8E;
+    }
+}

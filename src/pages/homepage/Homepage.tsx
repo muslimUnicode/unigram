@@ -1,5 +1,6 @@
 import Header from "../../components/header/NavBar"
 import PostList from "../../components/post-list/PostList"
+import SuggestionsBlock from "../../components/suggestions-block/SuggestionsBlock"
 import "./Homepage.scss"
 
 const Homepage = () => {
@@ -8,6 +9,7 @@ const Homepage = () => {
             <Header/>
             <div className="main">
                 <PostList/>
+                <SuggestionsBlock/>
             </div>
         </div>
     )

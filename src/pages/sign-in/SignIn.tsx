@@ -27,7 +27,7 @@ const SignIn = () => {
         <div className="authorization">
             <div className="logo"><img src={logo} alt=""/></div>
             <input type="text" className="phone-number" placeholder="Телефон, имя пользователя или эл.адрес" value={username} onChange={(e) => setUsername(e.target.value)}/>
-            <input type="text" className="password" placeholder="Пароль" value={password} onChange={(e) => setPassword(e.target.value)} onKeyDown={(e) => handleKeyDown(e)}/>
+            <input type="password" className="password" placeholder="Пароль" value={password} onChange={(e) => setPassword(e.target.value)} onKeyDown={(e) => handleKeyDown(e)}/>
             <button onClick={login}>Войти</button>
             {isAuth && <Navigate to="/"/>}
         </div>
