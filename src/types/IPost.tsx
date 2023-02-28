@@ -12,7 +12,8 @@ export interface IPost {
     likes: number,
 }
 
-export type postsState = {
+export type PostsState = {
     posts: IPost[];
     isLoading: boolean;
+    isActiveModal: boolean;
 }

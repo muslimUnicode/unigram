@@ -1,5 +1,6 @@
 .post-list {
     .post {
+        position: relative;
         width: 600px;
         margin: auto;
         background: white;
@@ -87,6 +88,29 @@
                 color: rgba(0, 149, 246, 0.25);
             }
         }
+
+        .options-buttons {
+            position: absolute;
+            top: 42px;
+            right: 0;
+        }
+
+        .options-buttons div {
+            cursor: pointer;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Roboto';
+            font-weight: 700;
+            font-size: 11px;
+            line-height: 13px;
+            color: #F4FAFF;
+            width: 116px;
+            height: 26px;
+            background: #2B3138;
+            border-radius: 20px;
+        }
     }
 
     .buttons {
@@ -111,6 +135,7 @@
 
     .options img {
         height: 32px;
+        cursor: pointer;
 
         img {
             height: 100%;
@@ -125,6 +150,7 @@
     }
 
     .post>img {
+        object-fit: cover;
         height: 600px;
         width: 600px;
     }

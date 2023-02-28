@@ -5,13 +5,13 @@ export interface IUser {
     avatar: string,
 }
 
-export type userState = {
+export type UserState = {
     user: IUser,
     isLoading: boolean,
     isAuth: boolean,
 }
 
-export type userData = {
+export type UserData = {
     username: string,
     password: string,
 }

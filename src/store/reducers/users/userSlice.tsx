@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IUser, userState } from "../../../types/IUser";
+import { IUser, UserState } from "../../../types/IUser";
 import { authorization, getUser } from "./userAction";
 import { cookies } from "../../../api/Api";
 
 
-const initialState: userState = {
+const initialState: UserState = {
     user: {
         token: cookies.get("token") || "",
         _id: "",
@@ -40,6 +40,9 @@ export const userSlice = createSlice({
             state.user._id = action.payload._id
             state.user.avatar = action.payload.avatar
             state.isAuth = true
+            state.isLoading = false
+        })
+        builder.addCase(getUser.rejected, (state) => {
             state.isLoading = false
         })
     }
