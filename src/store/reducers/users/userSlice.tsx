@@ -18,7 +18,11 @@ const initialState: userState = {
 export const userSlice = createSlice({
     name: "user",
     initialState,
-    reducers: {},
+    reducers: {
+        logout: (state) => {
+            state.user.token = ""
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(authorization.pending, (state) => {
             state.isLoading = true

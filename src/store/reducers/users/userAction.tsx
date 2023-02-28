@@ -5,7 +5,7 @@ import { cookies } from "../../../api/Api";
 
 export const authorization = createAsyncThunk(
     "user/authorization",
-    async function (userData: {username: string, password: string}, ) {
+    async function (userData: {username: string, password: string}) {
         const res = await baseService.post<IUser>("/user/sign-in", userData)
         cookies.set("token", res.data.token)      
         return res.data
