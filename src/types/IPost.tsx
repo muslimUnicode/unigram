@@ -15,5 +15,5 @@ export interface IPost {
 export type PostsState = {
     posts: IPost[];
     isLoading: boolean;
-    isActiveModal: boolean;
+    step: number;
 }

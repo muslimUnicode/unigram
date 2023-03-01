@@ -8,18 +8,21 @@ import shareIcon from "../../assets/share.svg"
 import addAComment from "../../assets/add-a-comment.svg"
 import { useState } from "react"
 import { deletePosts } from "../../store/reducers/posts/postsAction"
+import { setStep } from "../../store/reducers/posts/postsSlice"
 
 const PostList = () => {
     const { posts } = useAppSelector(state => state.posts)
     const [options, setOptions] = useState<boolean>(false)
+    const [id, setId] = useState<string>()
     const dispatch = useAppDispatch()
 
     const deletePost = (_id: string) => {
         dispatch(deletePosts(_id))
     }
 
-    const changeOptions = () => {
+    const changeOptions = (_id: string) => {
        setOptions(!options)
+       setId(_id)
     }
 
 
@@ -32,7 +35,7 @@ const PostList = () => {
                             <img src={post.user.avatar} alt=""/>
                             <span>{post.user.username}</span>
                         </div>
-                        <div className="options"><img src={optionsIcon} alt="" onClick={() => changeOptions()}/></div>
+                        <div className="options"><img src={optionsIcon} alt="" onClick={() => changeOptions(post._id)}/></div>
                     </div>
                     <img src={post.image} alt=""/>
                     <div className="lower">
@@ -58,9 +61,9 @@ const PostList = () => {
                         <span className="post-button">Post</span>
                     </div>
                     {
-                    options && 
+                    options && post._id === id &&
                     <div className="options-buttons">
-                        <div className="edit">Edit</div>
+                        <div className="edit" onClick={() => dispatch(setStep(2))}>Edit</div>
                         <div className="delete" onClick={() => deletePost(post._id)}>Delete</div>
                     </div>
                     }

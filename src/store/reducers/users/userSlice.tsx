@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IUser, UserState } from "../../../types/IUser";
 import { authorization, getUser } from "./userAction";
-import { cookies } from "../../../api/Api";
+import Cookies from "js-cookie";
 
 
 const initialState: UserState = {
     user: {
-        token: cookies.get("token") || "",
+        token: Cookies.get("token") || "",
         _id: "",
         avatar: "",
         username:  "",
@@ -19,8 +19,9 @@ export const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-        logout: (state) => {
+        logoutReducer: (state) => {
             state.user.token = ""
+            state.isLoading = false
         }
     },
     extraReducers: (builder) => {
@@ -49,3 +50,5 @@ export const userSlice = createSlice({
 });
 
 export default userSlice.reducer
+
+export const { logoutReducer } = userSlice.actions

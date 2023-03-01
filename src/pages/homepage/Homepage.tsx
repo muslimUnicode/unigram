@@ -10,7 +10,7 @@ import "./Homepage.scss"
 
 const Homepage = () => {
     const dispatch = useAppDispatch()
-    const { isActiveModal } = useAppSelector(state => state.posts)
+    const { step } = useAppSelector(state => state.posts)
 
     useEffect(() => {
         dispatch(getPosts())
@@ -23,7 +23,7 @@ const Homepage = () => {
                 <PostList/>
                 <SuggestionsBlock/>
             </div>
-            {isActiveModal && <ModalWindow />}
+            {step > 0 && <ModalWindow />}
         </div>
     )
 }

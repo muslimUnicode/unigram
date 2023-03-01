@@ -5,19 +5,16 @@ import { deletePosts, getPosts } from "./postsAction"
 const initialState: PostsState = {
     posts: [],
     isLoading: false,
-    isActiveModal: false
+    step: 0,
 }
 
 export const postSlice = createSlice({
     name: "posts",
     initialState,
     reducers: {
-        enableModal: (state) => {
-            state.isActiveModal = true
+        setStep: (state, action: PayloadAction<number>) => {
+            state.step = action.payload
         },
-        disableModal: (state) => {
-            state.isActiveModal = false
-        }
     },
     extraReducers(builder) {
         builder.addCase(getPosts.pending, (state) => {
@@ -46,4 +43,4 @@ export const postSlice = createSlice({
 
 export default postSlice.reducer;
 
-export const {enableModal, disableModal} = postSlice.actions
+export const {setStep} = postSlice.actions

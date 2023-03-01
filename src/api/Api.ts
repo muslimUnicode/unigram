@@ -1,20 +1,20 @@
 import axios from "axios";
-import Cookies from "universal-cookie";
+import Cookies from "js-cookie";
 import { store } from "../store/store";
+import { logoutReducer } from "../store/reducers/users/userSlice";
 
 const baseService = axios.create({
-    baseURL: 'https://unicode-unigram.onrender.com'
+    baseURL: 'https://unicode-unigram-xmfu.onrender.com'
 });
 
-export const cookies = new Cookies()
 
 export const setToken = () => {
-    baseService.defaults.headers.common.Authorization = "Bearer " + cookies.get("token")
+    baseService.defaults.headers.common.Authorization = "Bearer " + Cookies.get("token")
 }
 
 export const logout = (): void => {
-    cookies.remove("token")
-    store.dispatch(logout)
+    Cookies.remove("token")
+    store.dispatch(logoutReducer())
 }
 
 baseService.interceptors.response.use((res)=>{return res;}, (error)=>{

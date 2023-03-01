@@ -33,12 +33,8 @@ function App() {
     return (
         <div className="app">
             <Routes>
-                {isAuth ? (
-                    <Route path="/" element={<Homepage />} />
-                ) : (
-                    <Route path="/sign-in" element={<SignIn />} />
-                )}
                 <Route path="/" element={<Homepage />} />
+                <Route path="/sign-in" element={<SignIn />} />
             </Routes>
         </div>
     );

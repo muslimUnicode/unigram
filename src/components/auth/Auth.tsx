@@ -6,7 +6,6 @@ interface isAuth {
     children: JSX.Element
 }
 const Auth: FC<isAuth> = ({children}) => {
-
     const isAuth = useAppSelector((state) => state.user.isAuth)
 
     if(!isAuth){
