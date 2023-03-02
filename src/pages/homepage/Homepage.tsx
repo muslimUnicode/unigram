@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import NavBar from "../../components/header/NavBar"
+import NavBar from "../../components/NavBar/NavBar"
 import ModalWindow from "../../components/modal-window/ModalWindow"
 import PostList from "../../components/post-list/PostList"
 import SuggestionsBlock from "../../components/suggestions-block/SuggestionsBlock"
@@ -23,7 +23,7 @@ const Homepage = () => {
                 <PostList/>
                 <SuggestionsBlock/>
             </div>
-            {step > 0 && <ModalWindow />}
+            {step && <ModalWindow />}
         </div>
     )
 }

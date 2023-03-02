@@ -18,7 +18,7 @@ export const logout = (): void => {
 }
 
 baseService.interceptors.response.use((res)=>{return res;}, (error)=>{
-    if(error.response.status === 401){
+    if(error.response.status === 401) {
         logout()
     }
     return error

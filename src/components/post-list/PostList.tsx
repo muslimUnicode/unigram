@@ -47,7 +47,7 @@ const PostList = () => {
                             </div>
                             <div className="right"><img src={saveIcon} alt="" /></div>
                         </div>
-                        <div className="likes">{post.likes} likes</div>
+                        <div className="likes">{post.likes.length} likes</div>
                         <div className="description">
                             <span className="username">{post.user.username}</span>
                             <span className="username-comment">{post.description.slice(0, 150)}</span>

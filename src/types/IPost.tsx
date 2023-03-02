@@ -9,7 +9,7 @@ export interface IPost {
         avatar: string,
     },
     created_at: string,
-    likes: number,
+    likes: [],
 }
 
 export type PostsState = {
