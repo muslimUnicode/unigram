@@ -1,8 +1,9 @@
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks"
 import { setStep } from "../../store/reducers/posts/postsSlice"
 import stepBackArrow from "../../assets/step-back-arrow.svg"
-import "./ModalWindow.scss"
 import { useState } from "react"
+import emojiIcon from "../../assets/emojis.svg"
+import "./ModalWindow.scss"
 
 const ModalWindow = () => {
     const [description, setDescription] = useState<string>("")
@@ -64,10 +65,11 @@ const ModalWindow = () => {
                                 <img src={user.avatar} alt="" />
                                 <span>{user.username}</span>
                             </div>
-                            <label htmlFor="">
-                                <textarea placeholder="Добавьте подпись" rows={11}></textarea>
-
-                            </label>
+                            <textarea placeholder="Добавьте подпись..." maxLength={2200} rows={11} value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
+                            <div className="emoji-and-length">
+                                <div className="emoji"><img src={emojiIcon} alt="" /></div>
+                                <div className="input-length">{description.length}/2,200</div>
+                            </div>
                         </div>
                     </div>
                 </div>}

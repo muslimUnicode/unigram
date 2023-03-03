@@ -23,7 +23,7 @@ export const getPosts = createAsyncThunk(
 //     }
 // )
 
-export const deletePosts = createAsyncThunk(
+export const deletePost = createAsyncThunk(
     "posts/delete",
     async function (_id: string) {
         await baseService.delete<string>(`/posts/${_id}`)

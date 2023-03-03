@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { IPost, PostsState } from "../../../types/IPost"
-import { deletePosts, getPosts } from "./postsAction"
+import { deletePost, getPosts } from "./postsAction"
 
 const initialState: PostsState = {
     posts: [],
@@ -31,10 +31,10 @@ export const postSlice = createSlice({
         //     state.posts.push(action.payload)
         //     state.isLoading = false
         // })
-        builder.addCase(deletePosts.pending, (state) => {
+        builder.addCase(deletePost.pending, (state) => {
             state.isLoading = true
         })
-        builder.addCase(deletePosts.fulfilled, (state, action: PayloadAction<string>) => {
+        builder.addCase(deletePost.fulfilled, (state, action: PayloadAction<string>) => {
             state.posts = state.posts.filter(post => post._id !== action.payload)
             state.isLoading = false
         })
