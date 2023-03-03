@@ -4,16 +4,19 @@ import stepBackArrow from "../../assets/step-back-arrow.svg"
 import { useState } from "react"
 import emojiIcon from "../../assets/emojis.svg"
 import "./ModalWindow.scss"
+import { postPost } from "../../store/reducers/posts/postsAction"
 
 const ModalWindow = () => {
     const [description, setDescription] = useState<string>("")
     const [image, setImage] = useState<any>(null)
+    const [imageFile, setImageFile] = useState<File | null>(null)
     const { step } = useAppSelector(state => state.posts)
     const { user } = useAppSelector(state => state.user)
     const dispatch = useAppDispatch()
 
     const handleImage = (img: any) => {
         if(img) {
+            setImageFile(img)
             const reader = new FileReader()
             reader.onloadend = () => {
                 setImage(reader.result);
@@ -29,6 +32,11 @@ const ModalWindow = () => {
             e.stopPropagation()
             dispatch(setStep(step))
         }
+    }
+
+    const sharePost = () => {
+        dispatch(postPost({imageFile, description}))
+        dispatch(setStep(0))
     }
 
     return(
@@ -55,7 +63,7 @@ const ModalWindow = () => {
                     <div className='modal-header'>
                         <div className="step-back-arrow"><img src={stepBackArrow} alt="" onClick={(e) => handleStep(e, 1)} /></div>
                         <div className="modal-header-p">Создание публикации</div>
-                        <div className="share-button" onClick={(e) => handleStep(e, 0)}>Поделиться</div>
+                        <div className="share-button" onClick={() => sharePost()}>Поделиться</div>
                     </div>
                     <div className='line'></div>
                     <div className='modal-body'>

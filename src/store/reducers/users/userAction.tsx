@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import baseService from "../../../api/Api"
+import baseService from "../../../api/api"
 import { IUser } from "../../../types/IUser";
 import Cookies from "js-cookie";
 

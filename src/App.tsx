@@ -5,10 +5,10 @@ import Homepage from "./pages/homepage/Homepage";
 import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import { useEffect } from "react";
 import { getUser } from "./store/reducers/users/userAction";
-import { setToken } from "./api/Api";
+import { setToken } from "./api/api";
 
 function App() {
-    const { isLoading, isAuth } = useAppSelector((state) => state.user);
+    const { isLoading } = useAppSelector((state) => state.user);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 

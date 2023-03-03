@@ -19,18 +19,18 @@ const Post: FC<{post: IPost}> = ({post}) => {
         dispatch(deletePost(_id))
     }
 
-    const changeOptions = (_id: string) => {
+    const changeOptions = () => {
        setOptions(!options)
     }
     
     return(
-        <div className="post" key={post._id}>
+        <div className="post">
             <div className="upper">
                 <div className="post-user">
                     <img src={post.user.avatar} alt=""/>
                     <span>{post.user.username}</span>
                 </div>
-                <div className="options"><img src={optionsIcon} alt="" onClick={() => changeOptions(post._id)}/></div>
+                <div className="options"><img src={optionsIcon} alt="" onClick={() => changeOptions()}/></div>
             </div>
             <img src={post.image} alt=""/>
             <div className="lower">

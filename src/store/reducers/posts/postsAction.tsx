@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import baseService from "../../../api/Api";
+import baseService from "../../../api/api";
 import { IPost } from "../../../types/IPost";
 
 export const getPosts = createAsyncThunk(
@@ -10,18 +10,18 @@ export const getPosts = createAsyncThunk(
     }
 )
 
-// export const postPosts = createAsyncThunk(
-//     "posts/post",
-//     async function (postData) {
+export const postPost = createAsyncThunk(
+    "posts/post",
+    async function (postData: {imageFile: File | null, description: string}) {
+        const fd = new FormData()
 
-//         const fd = new FormData()
+        fd.append("image", postData.imageFile!)
+        fd.append("description", postData.description)
 
-//         fd.append("img", postData.file)
-
-//         const res = await baseService.post<IPost>("/posts")
-//         return res.data
-//     }
-// )
+        const res = await baseService.post<IPost>("/posts", fd)
+        return res.data
+    }
+)
 
 export const deletePost = createAsyncThunk(
     "posts/delete",

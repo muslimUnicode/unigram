@@ -8,7 +8,7 @@ const PostList = () => {
     return(
         <div className="post-list">
             {posts.map(post => (
-                <Post post={post}/>
+                <Post post={post} key={post._id}/>
             ))}
         </div>
     )
